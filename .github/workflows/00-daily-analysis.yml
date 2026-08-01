@@ -11,7 +11,7 @@ on:
       mode:
         description: '运行模式'
         required: true
-        default: 'stock-only'
+        default: 'stocks-only'
         type: choice
         options:
           - full          # 完整分析（股票+大盘）
@@ -35,7 +35,7 @@ jobs:
     # 推荐位置仍是 Settings -> Secrets and variables -> Actions -> Repository variables。
     environment: STOCK_LIST
     # 添加超时限制，防止任务卡死
-    timeout-minutes: ${{ fromJSON(vars.ANALYSIS_TIMEOUT_MINUTES || '30') }}
+    timeout-minutes: 60
     env:
       TZ: Asia/Shanghai
       
